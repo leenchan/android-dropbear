@@ -30,6 +30,10 @@ cd dropbear
 autoconf
 autoheader
 
+# Patch
+curl -OL "https://raw.githubusercontent.com/ubiquiti/dropbear-android/master/android-compat.patch"
+patch -p1 < android-compat.patch
+
 ./configure --host="$TARGET" \
     AR="$toolchain/bin/${TARGET/armv7a/arm}-ar" \
     CC="$toolchain/bin/$TARGET$PLATFORM-clang" \
